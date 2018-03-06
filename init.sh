@@ -12,4 +12,11 @@ if [ -n "$SENSORS_HOST" ]; then
     fi
 fi
 
+if [ -n "$PROJECT_NAME" ]; then
+    sed -i "s/\$PROJECT_NAME/$PROJECT_NAME/g" /etc/logagent.conf
+else
+    sed -i "s/\$PROJECT_NAME/default/g" /etc/logagent.conf
+fi
+    
+
 exec "$@"
